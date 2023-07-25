@@ -1,6 +1,6 @@
 /// メモ追加画面用のWidget
 import 'package:flutter/material.dart';
-import 'package:flutter_task_3/memo.dart';
+import 'package:flutter_task_3/data/provider/memo.dart';
 import 'package:provider/provider.dart';
 
 class TodoAddPage extends StatefulWidget {

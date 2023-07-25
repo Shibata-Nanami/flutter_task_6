@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_task_3/counter.dart';
+import 'package:flutter_task_3/data/provider/counter.dart';
 import 'package:flutter_task_3/router.dart';
 import 'package:provider/provider.dart';
 import 'isar_instance.dart';
-import 'memo.dart';
+import 'data/provider/memo.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

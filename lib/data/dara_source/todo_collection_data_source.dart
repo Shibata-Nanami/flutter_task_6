@@ -1,6 +1,6 @@
-import 'package:flutter_task_3/todo_collection.dart';
+import 'package:flutter_task_3/data/isar_collection/todo_collection.dart';
 import 'package:isar/isar.dart';
-import 'isar_instance.dart';
+import '../../isar_instance.dart';
 
 class TodoCollectionDataSource {
   final isar = IsarInstance().isar;
@@ -14,11 +14,19 @@ class TodoCollectionDataSource {
     return isar.todos.where().idEqualTo(id).findFirst();
   }
 
-  // データ追加 / 更新
+  // データ追加
   Future<void> setTodoData({
     required Todo todoModel,
   }) async {
     // データ追加
+    await isar.todos.put(todoModel);
+  }
+
+  // データ更新
+  Future<void> updateTodoData({
+    required Todo todoModel,
+  }) async {
+    // データ更新
     await isar.todos.put(todoModel);
   }
 

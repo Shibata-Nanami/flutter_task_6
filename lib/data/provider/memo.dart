@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'Model.dart';
+import '../../Model.dart';
 
 class Memo extends ChangeNotifier {
   final List<Model> _list = [

@@ -1,10 +1,10 @@
 /// メモ一覧画面用のWidget
 import 'package:flutter/material.dart';
-import 'package:flutter_task_3/screen3.dart';
+import 'package:flutter_task_3/presentation/screen3.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
-import 'memo.dart';
+import '../data/provider/memo.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key, required String titleName});

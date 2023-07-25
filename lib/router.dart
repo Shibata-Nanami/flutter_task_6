@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_task_3/screen3.dart';
-import 'package:flutter_task_3/todo_add_page.dart';
+import 'package:flutter_task_3/presentation/screen3.dart';
+import 'package:flutter_task_3/presentation/todo_add_page.dart';
 import 'package:go_router/go_router.dart';
-import 'home_screen.dart';
+import 'presentation/home_screen.dart';
 
 final goRouter = GoRouter(
 //デバッグコンソールで遷移先がわかる

@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter_task_3/todo_collection.dart';
+import 'package:flutter_task_3/data/isar_collection/todo_collection.dart';
 import 'package:isar/isar.dart';
 import 'package:path_provider/path_provider.dart';
 
