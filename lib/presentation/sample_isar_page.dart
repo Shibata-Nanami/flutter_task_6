@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_task_3/data/dara_source/todo_collection_data_source.dart';
+import 'package:flutter_task_3/data/data_source/todo_collection_data_source.dart';
 import 'package:flutter_task_3/data/isar_collection/todo_collection.dart';
 
 class SampleIsarPage extends StatelessWidget {
@@ -38,7 +38,7 @@ class SampleIsarPage extends StatelessWidget {
                 final todo = await dataSource.fetchTodoById(1);
                 debugPrint(todo.toString());
               },
-              child: const Text('データ一覧取得サンプル'),
+              child: const Text('データ単体取得サンプル'),
             ),
           ),
           SliverToBoxAdapter(

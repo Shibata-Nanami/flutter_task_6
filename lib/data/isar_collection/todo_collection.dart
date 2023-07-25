@@ -11,7 +11,7 @@ class Todo {
     required this.createdAt,
     required this.updatedAt,
   });
-  Id id = Isar.autoIncrement;
+  Id id = Isar.autoIncrement; // 自動生成される1,2,3,4...のID
 
   late String title;
 
