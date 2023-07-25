@@ -20,13 +20,16 @@ class SampleIsarPage extends StatelessWidget {
       ),
       body: CustomScrollView(
         slivers: [
-          SliverToBoxAdapter(
-            child: ElevatedButton(
-              onPressed: () async {
-                final todoList = await dataSource.fetchTodoList();
-                debugPrint(todoList.toString());
-              },
-              child: const Text('データ一覧取得サンプル'),
+          SliverPadding(
+            padding: const EdgeInsets.symmetric(vertical: 20),
+            sliver: SliverToBoxAdapter(
+              child: ElevatedButton(
+                onPressed: () async {
+                  final todoList = await dataSource.fetchTodoList();
+                  debugPrint(todoList.toString());
+                },
+                child: const Text('データ一覧取得サンプル'),
+              ),
             ),
           ),
           SliverToBoxAdapter(
