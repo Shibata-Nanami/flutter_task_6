@@ -8,12 +8,33 @@ class SampleIsarPage extends StatelessWidget {
   static const routeName = 'sample_isar_page';
   static const routePath = 'sample_isar_page';
 
+//   @override
+//   State<SampleIsarPage> createState() => _SampleIsarPage();
+// }
+
+// class _SampleIsarPage extends State<SampleIsarPage> {
+// //一覧のデータ呼び出し
+
+//   @override
+//   void didChangeDependencies() {
+//     super.didChangeDependencies();
+//     //addPostFrameCallback：ウィジェットが画面にレンダリングされた後に1回だけ呼び出されるコールバック関数
+//     WidgetsBinding.instance.addPostFrameCallback((_) {
+//       // build完了後の処理をここに書く
+//       _fetchMemoData();
+//     });
+//   }
+
+//   Future<void> _fetchMemoData() async {
+//     await context.read<TodoCollectionDataSource>().fetchTodoList();
+//   }
+
   @override
   Widget build(BuildContext context) {
     /// 使い回すのでここでDataSourceを定義
     final dataSource = TodoCollectionDataSource();
     return Scaffold(
-      backgroundColor: Colors.black12,
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.black87,
         title: const Text('Isar Sample'),
@@ -27,6 +48,7 @@ class SampleIsarPage extends StatelessWidget {
                 onPressed: () async {
                   final todoList = await dataSource.fetchTodoList();
                   debugPrint(todoList.toString());
+                  print('データ一覧取得サンプルボタン押下');
                 },
                 child: const Text('データ一覧取得サンプル'),
               ),
@@ -37,6 +59,7 @@ class SampleIsarPage extends StatelessWidget {
               onPressed: () async {
                 final todo = await dataSource.fetchTodoById(1);
                 debugPrint(todo.toString());
+                print('データ単体取得サンプルボタン押下');
               },
               child: const Text('データ単体取得サンプル'),
             ),
@@ -54,6 +77,7 @@ class SampleIsarPage extends StatelessWidget {
                     updatedAt: DateTime.now(),
                   ),
                 );
+                print('データ登録サンプル押下');
               },
               child: const Text('データ登録サンプル'),
             ),
@@ -62,6 +86,7 @@ class SampleIsarPage extends StatelessWidget {
             child: ElevatedButton(
               onPressed: () async {
                 await dataSource.deleteTodoData(id: 1);
+                print('データ削除サンプルボタン押下');
               },
               child: const Text('データ削除サンプル'),
             ),

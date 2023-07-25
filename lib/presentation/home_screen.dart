@@ -38,6 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
           TextButton(
             onPressed: () {
               context.goNamed(SampleIsarPage.routeName);
+              print('SampleIsarPageに遷移');
             },
             child: const Icon(Icons.cruelty_free_outlined),
           ),
