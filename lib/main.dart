@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_task_3/data/provider/counter.dart';
+import 'package:flutter_task_3/data/provider/todo_provider.dart';
 import 'package:flutter_task_3/router.dart';
 import 'package:provider/provider.dart';
 import 'isar_instance.dart';
@@ -15,6 +16,7 @@ Future<void> main() async {
       providers: [
         ChangeNotifierProvider(create: (_) => Counter()),
         ChangeNotifierProvider(create: (_) => Memo()),
+        ChangeNotifierProvider(create: (_) => TodoProvider()),
       ],
       child: const MyApp(),
     ),

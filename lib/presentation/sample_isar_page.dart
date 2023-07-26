@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_task_3/data/data_source/todo_collection_data_source.dart';
-import 'package:flutter_task_3/data/isar_collection/todo_collection.dart';
+import 'package:provider/provider.dart';
+import '../data/provider/todo_provider.dart';
 
 class SampleIsarPage extends StatelessWidget {
   const SampleIsarPage({super.key});
@@ -11,7 +11,6 @@ class SampleIsarPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     /// 使い回すのでここでDataSourceを定義
-    final dataSource = TodoCollectionDataSource();
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -26,8 +25,7 @@ class SampleIsarPage extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () async {
                   print('データ一覧取得サンプルボタン押下');
-                  final todoList = await dataSource.fetchTodoList();
-                  debugPrint(todoList.toString());
+                  context.read<TodoProvider>().getCollection();
                 },
                 child: const Text('データ一覧取得サンプル'),
               ),
@@ -37,8 +35,7 @@ class SampleIsarPage extends StatelessWidget {
             child: ElevatedButton(
               onPressed: () async {
                 print('データ単体取得サンプルボタン押下');
-                final todo = await dataSource.fetchTodoById(1);
-                debugPrint(todo.toString());
+                context.read<TodoProvider>().getSingleCollection();
               },
               child: const Text('データ単体取得サンプル'),
             ),
@@ -47,13 +44,7 @@ class SampleIsarPage extends StatelessWidget {
             child: ElevatedButton(
               onPressed: () async {
                 print('データ追加ボタン押下');
-                final newTodo = Todo()
-                  ..title = 'test'
-                  ..description = 'test'
-                  ..isCompleted = false
-                  ..createdAt = DateTime.now()
-                  ..updatedAt = DateTime.now();
-                dataSource.setTodoData(todoModel: newTodo);
+                context.read<TodoProvider>().addTodoCollection();
               },
               child: const Text('データ登録サンプル'),
             ),
@@ -62,17 +53,7 @@ class SampleIsarPage extends StatelessWidget {
             child: ElevatedButton(
               onPressed: () async {
                 print('更新ボタン押下');
-                final todo1 = await dataSource.fetchTodoById(1);
-                if (todo1 == null) {
-                  return;
-                }
-                // オブジェクトを上書きしていく
-                todo1
-                  ..title = 'debug'
-                  ..description = 'debug'
-                  ..isCompleted = true
-                  ..updatedAt = DateTime.now();
-                dataSource.setTodoData(todoModel: todo1);
+                context.read<TodoProvider>().updateCollection();
               },
               child: const Text('更新'),
             ),
@@ -81,7 +62,7 @@ class SampleIsarPage extends StatelessWidget {
             child: ElevatedButton(
               onPressed: () async {
                 print('データ削除サンプルボタン押下');
-                await dataSource.deleteTodoData(id: 1);
+                context.read<TodoProvider>().deleteCollection();
               },
               child: const Text('データ削除サンプル'),
             ),
