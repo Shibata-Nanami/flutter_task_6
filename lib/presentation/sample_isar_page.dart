@@ -67,7 +67,7 @@ class SampleIsarPage extends StatelessWidget {
           SliverToBoxAdapter(
             child: ElevatedButton(
               onPressed: () async {
-                print('データ登録サンプル押下');
+                print('データ追加ボタン押下');
                 final newTodo = Todo()
                   ..title = 'test'
                   ..description = 'test'
@@ -77,6 +77,25 @@ class SampleIsarPage extends StatelessWidget {
                 dataSource.setTodoData(todoModel: newTodo);
               },
               child: const Text('データ登録サンプル'),
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: ElevatedButton(
+              onPressed: () async {
+                print('更新ボタン押下');
+                final todo1 = await dataSource.fetchTodoById(1);
+                if (todo1 == null) {
+                  return;
+                }
+                // オブジェクトを上書きしていく
+                todo1
+                  ..title = 'debug'
+                  ..description = 'debug'
+                  ..isCompleted = true
+                  ..updatedAt = DateTime.now();
+                dataSource.setTodoData(todoModel: todo1);
+              },
+              child: const Text('更新'),
             ),
           ),
           SliverToBoxAdapter(
