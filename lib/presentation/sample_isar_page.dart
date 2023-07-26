@@ -46,9 +46,9 @@ class SampleIsarPage extends StatelessWidget {
             sliver: SliverToBoxAdapter(
               child: ElevatedButton(
                 onPressed: () async {
+                  print('データ一覧取得サンプルボタン押下');
                   final todoList = await dataSource.fetchTodoList();
                   debugPrint(todoList.toString());
-                  print('データ一覧取得サンプルボタン押下');
                 },
                 child: const Text('データ一覧取得サンプル'),
               ),
@@ -57,9 +57,9 @@ class SampleIsarPage extends StatelessWidget {
           SliverToBoxAdapter(
             child: ElevatedButton(
               onPressed: () async {
+                print('データ単体取得サンプルボタン押下');
                 final todo = await dataSource.fetchTodoById(1);
                 debugPrint(todo.toString());
-                print('データ単体取得サンプルボタン押下');
               },
               child: const Text('データ単体取得サンプル'),
             ),
@@ -67,7 +67,7 @@ class SampleIsarPage extends StatelessWidget {
           SliverToBoxAdapter(
             child: ElevatedButton(
               onPressed: () async {
-                todoModel:
+                print('データ登録サンプル押下');
                 final newTodo = Todo()
                   ..title = 'test'
                   ..description = 'test'
@@ -75,7 +75,6 @@ class SampleIsarPage extends StatelessWidget {
                   ..createdAt = DateTime.now()
                   ..updatedAt = DateTime.now();
                 dataSource.setTodoData(todoModel: newTodo);
-                print('データ登録サンプル押下');
               },
               child: const Text('データ登録サンプル'),
             ),
@@ -83,8 +82,8 @@ class SampleIsarPage extends StatelessWidget {
           SliverToBoxAdapter(
             child: ElevatedButton(
               onPressed: () async {
-                await dataSource.deleteTodoData(id: 1);
                 print('データ削除サンプルボタン押下');
+                await dataSource.deleteTodoData(id: 1);
               },
               child: const Text('データ削除サンプル'),
             ),
