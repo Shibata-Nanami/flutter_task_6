@@ -67,16 +67,14 @@ class SampleIsarPage extends StatelessWidget {
           SliverToBoxAdapter(
             child: ElevatedButton(
               onPressed: () async {
-                // 引数にTodoモデルを渡す
-                await dataSource.setTodoData(
-                  todoModel: Todo(
-                    title: 'サンプルタイトル',
-                    description: 'サンプル説明文',
-                    isCompleted: false,
-                    createdAt: DateTime.now(),
-                    updatedAt: DateTime.now(),
-                  ),
-                );
+                todoModel:
+                final newTodo = Todo()
+                  ..title = 'test'
+                  ..description = 'test'
+                  ..isCompleted = false
+                  ..createdAt = DateTime.now()
+                  ..updatedAt = DateTime.now();
+                dataSource.setTodoData(todoModel: newTodo);
                 print('データ登録サンプル押下');
               },
               child: const Text('データ登録サンプル'),
