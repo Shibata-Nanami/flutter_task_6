@@ -4,14 +4,7 @@ part 'todo_collection.g.dart';
 
 @Collection()
 class Todo {
-  Todo({
-    required this.title,
-    required this.description,
-    this.isCompleted = false, // 初期値を設定している
-    required this.createdAt,
-    required this.updatedAt,
-  });
-  Id id = Isar.autoIncrement; // 自動生成される1,2,3,4...のID
+  Id id = Isar.autoIncrement;
 
   late String title;
 
@@ -23,4 +16,10 @@ class Todo {
 
   @Index()
   late DateTime updatedAt;
+
+  @override
+  String toString() {
+    return 'Todo(id: $id, title: $title, description: $description, '
+        'isCompleted: $isCompleted, createdAt: $createdAt, updatedAt: $updatedAt)';
+  }
 }
