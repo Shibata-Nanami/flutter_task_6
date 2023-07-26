@@ -8,27 +8,6 @@ class SampleIsarPage extends StatelessWidget {
   static const routeName = 'sample_isar_page';
   static const routePath = 'sample_isar_page';
 
-//   @override
-//   State<SampleIsarPage> createState() => _SampleIsarPage();
-// }
-
-// class _SampleIsarPage extends State<SampleIsarPage> {
-// //一覧のデータ呼び出し
-
-//   @override
-//   void didChangeDependencies() {
-//     super.didChangeDependencies();
-//     //addPostFrameCallback：ウィジェットが画面にレンダリングされた後に1回だけ呼び出されるコールバック関数
-//     WidgetsBinding.instance.addPostFrameCallback((_) {
-//       // build完了後の処理をここに書く
-//       _fetchMemoData();
-//     });
-//   }
-
-//   Future<void> _fetchMemoData() async {
-//     await context.read<TodoCollectionDataSource>().fetchTodoList();
-//   }
-
   @override
   Widget build(BuildContext context) {
     /// 使い回すのでここでDataSourceを定義
