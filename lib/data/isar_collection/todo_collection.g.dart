@@ -101,14 +101,13 @@ Todo _todoDeserialize(
   List<int> offsets,
   Map<Type, List<int>> allOffsets,
 ) {
-  final object = Todo(
-    createdAt: reader.readDateTime(offsets[0]),
-    description: reader.readString(offsets[1]),
-    isCompleted: reader.readBoolOrNull(offsets[2]) ?? false,
-    title: reader.readString(offsets[3]),
-    updatedAt: reader.readDateTime(offsets[4]),
-  );
+  final object = Todo();
+  object.createdAt = reader.readDateTime(offsets[0]);
+  object.description = reader.readString(offsets[1]);
   object.id = id;
+  object.isCompleted = reader.readBool(offsets[2]);
+  object.title = reader.readString(offsets[3]);
+  object.updatedAt = reader.readDateTime(offsets[4]);
   return object;
 }
 
@@ -124,7 +123,7 @@ P _todoDeserializeProp<P>(
     case 1:
       return (reader.readString(offset)) as P;
     case 2:
-      return (reader.readBoolOrNull(offset) ?? false) as P;
+      return (reader.readBool(offset)) as P;
     case 3:
       return (reader.readString(offset)) as P;
     case 4:
