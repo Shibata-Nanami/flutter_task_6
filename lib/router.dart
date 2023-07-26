@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_task_3/screen3.dart';
-import 'package:flutter_task_3/todo_add_page.dart';
+import 'package:flutter_task_3/presentation/sample_isar_page.dart';
+import 'package:flutter_task_3/presentation/screen3.dart';
+import 'package:flutter_task_3/presentation/todo_add_page.dart';
 import 'package:go_router/go_router.dart';
-import 'home_screen.dart';
+import 'presentation/home_screen.dart';
 
 final goRouter = GoRouter(
 //デバッグコンソールで遷移先がわかる
@@ -37,6 +38,14 @@ final goRouter = GoRouter(
             );
           },
         ),
+        GoRoute(
+          name: SampleIsarPage.routeName,
+          path: SampleIsarPage.routePath,
+          pageBuilder: (context, state) {
+            return const MaterialPage(child: SampleIsarPage());
+          },
+        ),
+        // 他のルート情報を追加することも可能
       ],
     ),
   ],

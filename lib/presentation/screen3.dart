@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'counter.dart';
+import '../data/provider/counter.dart';
 
 class Screen3 extends StatefulWidget {
   const Screen3({super.key});
